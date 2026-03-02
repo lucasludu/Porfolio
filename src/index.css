@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 0 0% 100%;
+        --foreground: 222.2 84% 4.9%;
+        --card: 0 0% 100%;
+        --card-foreground: 222.2 84% 4.9%;
+        --accent: 262.1 83.3% 57.8%;
+        --accent-foreground: 0 0% 100%;
+    }
+
+    .dark {
+        --background: 240 10% 3.9%;
+        --foreground: 0 0% 98%;
+        --card: 240 10% 10%;
+        --card-foreground: 0 0% 98%;
+        --accent-foreground: 0 0% 100%;
+    }
+
+    body {
+        @apply bg-background text-foreground transition-colors duration-300;
+    }
+}
+
+.timeline-line {
+    @apply absolute left-4 top-0 bottom-0 w-0.5 bg-accent/20;
+}
+
+.glass-card {
+    @apply bg-card/60 border border-foreground/10 backdrop-blur-md rounded-xl overflow-hidden shadow-lg transition-all duration-300;
+}
+
+.dark .glass-card {
+    @apply bg-card/80 border-white/10;
+}
