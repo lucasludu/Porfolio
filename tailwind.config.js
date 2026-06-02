@@ -17,7 +17,7 @@ export default {
                 "oxford-gray": "#34495e",
             },
             fontFamily: {
-                sans: ["Inter", "sans-serif"],
+                sans: ["Outfit", "sans-serif"],
             },
         },
     },

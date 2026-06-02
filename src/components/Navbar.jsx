@@ -16,13 +16,15 @@ const Navbar = ({ isDark, toggleTheme, lang, toggleLang, t }) => {
     return (
         <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-foreground/10">
             <div className="container mx-auto px-6 h-20 flex justify-between items-center">
-                <motion.div
+                <motion.a
+                    href="#inicio"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    className="text-2xl font-bold tracking-tighter"
+                    className="text-2xl font-bold tracking-tighter flex items-center gap-3"
                 >
-                    Lucas<span className="text-accent">Ludueña</span>
-                </motion.div>
+                    <img src="/favicon.png" alt="LL Logo" className="w-8 h-8 rounded-lg shadow-[0_0_10px_rgba(124,58,237,0.3)] border border-accent/20" />
+                    <div>Lucas<span className="text-accent">Ludueña</span></div>
+                </motion.a>
 
                 {/* Desktop Menu */}
                 <div className="hidden md:flex items-center gap-6">

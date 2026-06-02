@@ -1,10 +1,33 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Github, ChevronDown, ChevronUp } from 'lucide-react';
+import { Github, ChevronDown, ChevronUp, ExternalLink } from 'lucide-react';
 
 const ProjectGrid = ({ t }) => {
+    const getLinkIcon = (url, size = 14) => {
+        if (url && url.includes('github.com')) {
+            return <Github size={size} />;
+        }
+        return <ExternalLink size={size} />;
+    };
+
     const [isExpanded, setIsExpanded] = useState(false);
     const projectStaticData = [
+        {
+            tags: ['.NET 10', 'Blazor', 'Clean Architecture', 'SQLite', 'C#'],
+            image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=800&auto=format&fit=crop'
+        },
+        {
+            tags: ['React Native', 'Firebase', 'Maps API', 'TypeScript'],
+            image: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=800&auto=format&fit=crop'
+        },
+        {
+            tags: ['Python', 'Docker', 'Ollama', 'Groq / Gemini'],
+            image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800&auto=format&fit=crop'
+        },
+        {
+            tags: ['React', 'JavaScript', 'Tailwind', 'Frontend'],
+            image: '/carpentry.png'
+        },
         {
             tags: ['.NET 9', 'Blazor 10', 'Redis', 'Docker', 'JWT', 'SOLID'],
             image: 'https://images.unsplash.com/photo-1506521781263-d8422e82f27a?q=80&w=800&auto=format&fit=crop'
@@ -16,10 +39,6 @@ const ProjectGrid = ({ t }) => {
         {
             tags: ['C#', 'WPF', '.NET 10', 'SQLite'],
             image: 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=800&auto=format&fit=crop'
-        },
-        {
-            tags: ['.NET Core 8', 'SQL Server', 'WebHooks'],
-            image: 'https://images.unsplash.com/photo-1506784983877-45594efa4cbe?q=80&w=800&auto=format&fit=crop'
         }
     ];
 
@@ -48,24 +67,47 @@ const ProjectGrid = ({ t }) => {
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
                             exit={{ opacity: 0, scale: 0.9 }}
-                            whileHover={{ y: -10 }}
-                            transition={{ duration: 0.3 }}
-                            className="glass-card group flex flex-col"
+                            whileHover={{ y: -8 }}
+                            transition={{ duration: 0.4 }}
+                            className="glass-card group flex flex-col h-full"
                         >
                             <div className="relative aspect-video overflow-hidden">
                                 <img
                                     src={project.image}
                                     alt={project.title}
-                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                                 />
                                 <div className="absolute inset-0 bg-accent/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 gap-4">
-                                    <a href="https://github.com/lucasludu" target="_blank" rel="noopener noreferrer" className="p-2 bg-card text-accent rounded-full hover:scale-110 transition-transform"><Github size={20} /></a>
+                                    {project.links ? (
+                                        project.links.map((link, i) => (
+                                            <a
+                                                key={i}
+                                                href={link.url}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="flex flex-col items-center gap-1 p-3 bg-card text-accent rounded-xl hover:scale-110 transition-transform shadow-md font-semibold text-xs min-w-[75px]"
+                                            >
+                                                {getLinkIcon(link.url, 20)}
+                                                <span>{link.label}</span>
+                                            </a>
+                                        ))
+                                    ) : (
+                                        <a
+                                            href={project.href || "https://github.com/lucasludu"}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="flex flex-col items-center gap-1 p-3 bg-card text-accent rounded-xl hover:scale-110 transition-transform shadow-md font-semibold text-xs min-w-[75px]"
+                                        >
+                                            {getLinkIcon(project.href || "https://github.com/lucasludu", 20)}
+                                            <span>{t.code || "Code"}</span>
+                                        </a>
+                                    )}
                                 </div>
                             </div>
 
                             <div className="p-6 space-y-4 flex-1 flex flex-col">
                                 <h3 className="text-lg md:text-xl font-bold group-hover:text-accent transition-colors">{project.title}</h3>
-                                <p className="text-muted text-sm leading-relaxed flex-1">{project.description}</p>
+                                <p className="text-muted text-sm leading-relaxed flex-1 text-left">{project.description}</p>
 
                                 <div className="flex flex-wrap gap-2 pt-4">
                                     {project.tags.map(tag => (
@@ -85,11 +127,13 @@ const ProjectGrid = ({ t }) => {
                                                 rel="noopener noreferrer"
                                                 className="flex items-center gap-1 hover:text-accent transition-colors"
                                             >
-                                                <Github size={14} /> {link.label}
+                                                {getLinkIcon(link.url, 14)} {link.label}
                                             </a>
                                         ))
                                     ) : (
-                                        <a href={project.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-accent transition-colors"><Github size={14} /> {t.code}</a>
+                                        <a href={project.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-accent transition-colors">
+                                            {getLinkIcon(project.href || "https://github.com/lucasludu", 14)} {t.code}
+                                        </a>
                                     )}
                                 </div>
                             </div>
