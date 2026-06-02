@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { flushSync } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Github, Linkedin, Mail } from 'lucide-react';
 import Navbar from './components/Navbar';
@@ -36,7 +37,18 @@ function App() {
 
     const toggleTheme = () => {
         const newTheme = !isDark;
-        setIsDark(newTheme);
+        
+        if (!document.startViewTransition) {
+            setIsDark(newTheme);
+            localStorage.setItem('theme', newTheme ? 'dark' : 'light');
+            return;
+        }
+
+        document.startViewTransition(() => {
+            flushSync(() => {
+                setIsDark(newTheme);
+            });
+        });
         localStorage.setItem('theme', newTheme ? 'dark' : 'light');
     };
 
