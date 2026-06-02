@@ -22,7 +22,7 @@ const Navbar = ({ isDark, toggleTheme, lang, toggleLang, t }) => {
                     animate={{ opacity: 1, x: 0 }}
                     className="text-2xl font-bold tracking-tighter flex items-center gap-3"
                 >
-                    <img src="/favicon.png" alt="LL Logo" className="w-8 h-8 rounded-lg shadow-[0_0_10px_rgba(124,58,237,0.3)] border border-accent/20" />
+                    <img src={`${import.meta.env.BASE_URL}favicon.png`} alt="LL Logo" className="w-8 h-8 rounded-lg shadow-[0_0_10px_rgba(124,58,237,0.3)] border border-accent/20" />
                     <div>Lucas<span className="text-accent">Ludueña</span></div>
                 </motion.a>
 

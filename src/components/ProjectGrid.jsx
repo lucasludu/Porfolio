@@ -26,7 +26,7 @@ const ProjectGrid = ({ t }) => {
         },
         {
             tags: ['React', 'JavaScript', 'Tailwind', 'Frontend'],
-            image: '/carpentry.png'
+            image: `${import.meta.env.BASE_URL}carpentry.png`
         },
         {
             tags: ['.NET 9', 'Blazor 10', 'Redis', 'Docker', 'JWT', 'SOLID'],
