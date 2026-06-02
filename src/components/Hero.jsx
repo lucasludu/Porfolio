@@ -27,7 +27,7 @@ const Hero = ({ t }) => {
 
                 <div className="flex flex-wrap justify-center gap-6 mb-12">
                     <a
-                        href={`/${t.cvFile}`}
+                        href={`${import.meta.env.BASE_URL}${t.cvFile}`}
                         download={t.cvFile}
                         target="_blank"
                         rel="noopener noreferrer"
