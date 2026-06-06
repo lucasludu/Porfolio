@@ -59,8 +59,12 @@ export const translations = {
         projects: {
             title: 'Proyectos Personales',
             code: 'Código',
-            showMore: 'Ver más proyectos',
-            showLess: 'Ver menos',
+            categories: {
+                all: 'Todos',
+                net: '.NET',
+                react: 'React / Mobile',
+                agents: 'Agentes / IA'
+            },
             items: [
                 {
                     title: 'Split Money',
@@ -105,6 +109,16 @@ export const translations = {
                     title: 'Libreta Digital',
                     description: 'Aplicación de escritorio en C# con WPF y .NET 10 para la gestión académica, utilizando SQLite. Permite administrar alumnos, cursos, materias y calificaciones de manera eficiente.',
                     links: [{ label: 'WPF', url: 'https://github.com/lucasludu/EscuelaGestion' }]
+                },
+                {
+                    title: 'RAG Advance Agents',
+                    description: 'Agente RAG avanzado en .NET 10. Implementa recuperación aumentada de generación utilizando embeddings locales y modelos de Groq, con interfaz web que renderiza diagramas Mermaid dinámicamente.',
+                    links: [{ label: 'GitHub', url: 'https://github.com/lucasludu/RAGAdvanceAgents' }]
+                },
+                {
+                    title: 'Task Driven Agents',
+                    description: 'Arquitectura de agentes orientados a tareas. Sistema modular en .NET con configuración segura de credenciales, inyección de variables de entorno e integración de diagramas arquitectónicos.',
+                    links: [{ label: 'GitHub', url: 'https://github.com/lucasludu/TaskDrivenAgents' }]
                 }
             ]
         },
@@ -187,8 +201,12 @@ export const translations = {
         projects: {
             title: 'Personal Projects',
             code: 'Code',
-            showMore: 'Show more projects',
-            showLess: 'Show less',
+            categories: {
+                all: 'All',
+                net: '.NET',
+                react: 'React / Mobile',
+                agents: 'Agents / AI'
+            },
             items: [
                 {
                     title: 'Split Money',
@@ -233,6 +251,16 @@ export const translations = {
                     title: 'Digital Gradebook',
                     description: 'Desktop application in C# with WPF and .NET 10 for academic management, using SQLite. Enables efficient administration of students, courses, subjects, and grades.',
                     links: [{ label: 'GitHub', url: 'https://github.com/lucasludu/EscuelaGestion' }]
+                },
+                {
+                    title: 'RAG Advance Agents',
+                    description: 'Advanced RAG agent in .NET 10. Implements retrieval-augmented generation using local embeddings and Groq models, featuring a web interface that dynamically renders Mermaid diagrams.',
+                    links: [{ label: 'GitHub', url: 'https://github.com/lucasludu/RAGAdvanceAgents' }]
+                },
+                {
+                    title: 'Task Driven Agents',
+                    description: 'Task-oriented agent architecture. Modular .NET system with secure credential configuration, environment variable injection, and integration of architectural diagrams.',
+                    links: [{ label: 'GitHub', url: 'https://github.com/lucasludu/TaskDrivenAgents' }]
                 }
             ]
         },

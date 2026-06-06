@@ -10,35 +10,52 @@ const ProjectGrid = ({ t }) => {
         return <ExternalLink size={size} />;
     };
 
-    const [isExpanded, setIsExpanded] = useState(false);
+    const [activeCategory, setActiveCategory] = useState('all');
     const projectStaticData = [
         {
             tags: ['.NET 10', 'Blazor', 'Clean Architecture', 'SQLite', 'C#'],
-            image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=800&auto=format&fit=crop'
+            image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=800&auto=format&fit=crop',
+            category: 'net'
         },
         {
             tags: ['React Native', 'Firebase', 'Maps API', 'TypeScript'],
-            image: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=800&auto=format&fit=crop'
+            image: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=800&auto=format&fit=crop',
+            category: 'react'
         },
         {
             tags: ['Python', 'Docker', 'Ollama', 'Groq / Gemini'],
-            image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800&auto=format&fit=crop'
+            image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800&auto=format&fit=crop',
+            category: 'agents'
         },
         {
             tags: ['React', 'JavaScript', 'Tailwind', 'Frontend'],
-            image: `${import.meta.env.BASE_URL}carpentry.png`
+            image: `${import.meta.env.BASE_URL}carpentry.png`,
+            category: 'react'
         },
         {
             tags: ['.NET 9', 'Blazor 10', 'Redis', 'Docker', 'JWT', 'SOLID'],
-            image: 'https://images.unsplash.com/photo-1506521781263-d8422e82f27a?q=80&w=800&auto=format&fit=crop'
+            image: 'https://images.unsplash.com/photo-1506521781263-d8422e82f27a?q=80&w=800&auto=format&fit=crop',
+            category: 'net'
         },
         {
             tags: ['React', 'IA-Powered', 'Tailwind', 'Framer Motion', 'Vite'],
-            image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop'
+            image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop',
+            category: 'react'
         },
         {
             tags: ['C#', 'WPF', '.NET 10', 'SQLite'],
-            image: 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=800&auto=format&fit=crop'
+            image: 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=800&auto=format&fit=crop',
+            category: 'net'
+        },
+        {
+            tags: ['.NET 10', 'Llama 3', 'Groq API', 'RAG'],
+            image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=800&auto=format&fit=crop',
+            category: 'agents'
+        },
+        {
+            tags: ['.NET 10', 'LLMs', 'Prompt Engineering', 'Mermaid'],
+            image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800&auto=format&fit=crop',
+            category: 'agents'
         }
     ];
 
@@ -47,15 +64,38 @@ const ProjectGrid = ({ t }) => {
         ...projectStaticData[index]
     }));
 
-    const initialCount = 3;
-    const isExpandable = projects.length > initialCount;
-    const visibleProjects = isExpanded ? projects : projects.slice(0, initialCount);
+    const visibleProjects = activeCategory === 'all' 
+        ? projects 
+        : projects.filter(p => p.category === activeCategory);
+
+    const categories = [
+        { id: 'all', label: t.categories?.all || 'Todos' },
+        { id: 'net', label: t.categories?.net || '.NET' },
+        { id: 'react', label: t.categories?.react || 'React / Mobile' },
+        { id: 'agents', label: t.categories?.agents || 'Agentes / IA' }
+    ];
 
     return (
         <section id="proyectos" className="space-y-12">
             <div className="text-center space-y-4">
                 <h2 className="text-3xl md:text-4xl font-bold tracking-tight">{t.title}</h2>
                 <div className="h-1.5 w-24 bg-accent mx-auto rounded-full" />
+            </div>
+
+            <div className="flex flex-wrap justify-center gap-4 py-4">
+                {categories.map(cat => (
+                    <button
+                        key={cat.id}
+                        onClick={() => setActiveCategory(cat.id)}
+                        className={`px-6 py-2 rounded-full transition-all border text-sm font-medium ${
+                            activeCategory === cat.id 
+                                ? 'bg-accent text-background border-accent' 
+                                : 'bg-transparent text-accent border-accent/30 hover:border-accent hover:bg-accent/10'
+                        }`}
+                    >
+                        {cat.label}
+                    </button>
+                ))}
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -142,29 +182,6 @@ const ProjectGrid = ({ t }) => {
                 </AnimatePresence>
             </div>
 
-            {isExpandable && (
-                <motion.div
-                    layout
-                    className="flex justify-center pt-8"
-                >
-                    <button
-                        onClick={() => setIsExpanded(!isExpanded)}
-                        className="group flex items-center gap-2 px-6 py-3 bg-accent/10 hover:bg-accent/20 text-accent font-medium rounded-full transition-all border border-accent/20 hover:border-accent/40"
-                    >
-                        {isExpanded ? (
-                            <>
-                                {t.showLess}
-                                <ChevronUp className="w-5 h-5 group-hover:-translate-y-1 transition-transform" />
-                            </>
-                        ) : (
-                            <>
-                                {t.showMore}
-                                <ChevronDown className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
-                            </>
-                        )}
-                    </button>
-                </motion.div>
-            )}
         </section>
     );
 };
