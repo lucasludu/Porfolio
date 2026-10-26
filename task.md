@@ -24,7 +24,7 @@ Flujo de trabajo: por cada tarea se crea una rama desde `develop`, se arregla, s
 ## 🌐 SEO y accesibilidad
 
 - [x] **11. `seo/meta-tags`**: agregar `description` y Open Graph / Twitter Card en `index.html`.
-- [ ] **12. `a11y/html-lang`**: actualizar `<html lang>` al cambiar idioma.
+- [x] **12. `a11y/html-lang`**: actualizar `<html lang>` al cambiar idioma.
 - [ ] **13. `a11y/reduced-motion`**: respetar `prefers-reduced-motion` (`MotionConfig reducedMotion="user"`).
 - [ ] **14. `feat/system-theme`**: usar `prefers-color-scheme` como tema inicial si no hay uno guardado.
 - [ ] **15. `fix/section-ids`**: `#educación` → `#educacion`.
