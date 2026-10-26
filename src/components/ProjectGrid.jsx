@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Github, ChevronDown, ChevronUp, ExternalLink } from 'lucide-react';
+import { Github, ExternalLink } from 'lucide-react';
 
 const ProjectGrid = ({ t }) => {
     const getLinkIcon = (url, size = 14) => {
@@ -101,7 +101,7 @@ const ProjectGrid = ({ t }) => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <AnimatePresence>
-                    {visibleProjects.map((project, index) => (
+                    {visibleProjects.map((project) => (
                         <motion.div
                             key={project.id}
                             layout
@@ -120,30 +120,18 @@ const ProjectGrid = ({ t }) => {
                                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                                 />
                                 <div className="absolute inset-0 bg-accent/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 gap-4">
-                                    {project.links ? (
-                                        project.links.map((link, i) => (
-                                            <a
-                                                key={i}
-                                                href={link.url}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="flex flex-col items-center gap-1 p-3 bg-card text-accent rounded-xl hover:scale-110 transition-transform shadow-md font-semibold text-xs min-w-[75px]"
-                                            >
-                                                {getLinkIcon(link.url, 20)}
-                                                <span>{link.label}</span>
-                                            </a>
-                                        ))
-                                    ) : (
+                                    {project.links.map((link, i) => (
                                         <a
-                                            href={project.href || "https://github.com/lucasludu"}
+                                            key={i}
+                                            href={link.url}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="flex flex-col items-center gap-1 p-3 bg-card text-accent rounded-xl hover:scale-110 transition-transform shadow-md font-semibold text-xs min-w-[75px]"
                                         >
-                                            {getLinkIcon(project.href || "https://github.com/lucasludu", 20)}
-                                            <span>{t.code || "Code"}</span>
+                                            {getLinkIcon(link.url, 20)}
+                                            <span>{link.label}</span>
                                         </a>
-                                    )}
+                                    ))}
                                 </div>
                             </div>
 
@@ -160,23 +148,17 @@ const ProjectGrid = ({ t }) => {
                                 </div>
 
                                 <div className="flex flex-wrap gap-4 pt-4 border-t border-foreground/10 text-xs text-muted">
-                                    {project.links ? (
-                                        project.links.map((link, i) => (
-                                            <a
-                                                key={i}
-                                                href={link.url}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="flex items-center gap-1 hover:text-accent transition-colors"
-                                            >
-                                                {getLinkIcon(link.url, 14)} {link.label}
-                                            </a>
-                                        ))
-                                    ) : (
-                                        <a href={project.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-accent transition-colors">
-                                            {getLinkIcon(project.href || "https://github.com/lucasludu", 14)} {t.code}
+                                    {project.links.map((link, i) => (
+                                        <a
+                                            key={i}
+                                            href={link.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="flex items-center gap-1 hover:text-accent transition-colors"
+                                        >
+                                            {getLinkIcon(link.url, 14)} {link.label}
                                         </a>
-                                    )}
+                                    ))}
                                 </div>
                             </div>
                         </motion.div>

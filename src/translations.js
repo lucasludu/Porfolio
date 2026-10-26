@@ -33,8 +33,6 @@ export const translations = {
         },
         experience: {
             title: 'Experiencia Laboral',
-            showMore: 'Ver más experiencia',
-            showLess: 'Ver menos',
             items: [
                 {
                     id: 'ripsa',
@@ -61,7 +59,6 @@ export const translations = {
         },
         projects: {
             title: 'Proyectos Personales',
-            code: 'Código',
             categories: {
                 all: 'Todos',
                 net: '.NET',
@@ -187,8 +184,6 @@ export const translations = {
         },
         experience: {
             title: 'Work Experience',
-            showMore: 'Show more experience',
-            showLess: 'Show less',
             items: [
                 {
                     id: 'ripsa',
@@ -215,7 +210,6 @@ export const translations = {
         },
         projects: {
             title: 'Personal Projects',
-            code: 'Code',
             categories: {
                 all: 'All',
                 net: '.NET',

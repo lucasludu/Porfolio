@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
 const Timeline = ({ t }) => {
-    const [isExpanded, setIsExpanded] = useState(false);
     const [activeIndex, setActiveIndex] = useState(0);
 
     // Tags de cada experiencia, por id (ver translations.js)
@@ -18,8 +17,6 @@ const Timeline = ({ t }) => {
         tags: experienceTags[item.id] || []
     }));
 
-    const initialCount = 3; // Mostrar todos por defecto ahora que ocupan menos espacio
-    const visibleExperiences = isExpanded ? experiences : experiences.slice(0, initialCount);
 
     const toggleExperience = (index) => {
         setActiveIndex(activeIndex === index ? null : index);
@@ -38,7 +35,7 @@ const Timeline = ({ t }) => {
 
                 <div className="space-y-8">
                     <AnimatePresence mode="popLayout">
-                        {visibleExperiences.map((exp, index) => {
+                        {experiences.map((exp, index) => {
                             const isOpen = activeIndex === index;
                             return (
                                 <motion.div
