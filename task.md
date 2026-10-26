@@ -27,7 +27,7 @@ Flujo de trabajo: por cada tarea se crea una rama desde `develop`, se arregla, s
 - [x] **12. `a11y/html-lang`**: actualizar `<html lang>` al cambiar idioma.
 - [x] **13. `a11y/reduced-motion`**: respetar `prefers-reduced-motion` (`MotionConfig reducedMotion="user"`).
 - [x] **14. `feat/system-theme`**: usar `prefers-color-scheme` como tema inicial si no hay uno guardado.
-- [ ] **15. `fix/section-ids`**: `#educación` → `#educacion`.
+- [x] **15. `fix/section-ids`**: `#educación` → `#educacion`.
 - [ ] **16. `chore/eslint`**: agregar ESLint con reglas de React.
 
 ## 💡 Extras (requieren decisión / material del autor)

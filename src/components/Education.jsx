@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 const Education = ({ t }) => {
     return (
-        <section id="educación" className="space-y-12 overflow-hidden px-4 md:px-0">
+        <section id="educacion" className="space-y-12 overflow-hidden px-4 md:px-0">
             <div className="text-center space-y-4">
                 <h2 className="text-3xl md:text-4xl font-bold tracking-tight">{t.title}</h2>
                 <div className="h-1.5 w-24 bg-accent mx-auto rounded-full" />
