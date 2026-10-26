@@ -10,7 +10,7 @@ const Navbar = ({ isDark, toggleTheme, lang, toggleLang, t }) => {
         { name: t.stack, href: '#habilidades' },
         { name: t.experience, href: '#experiencia' },
         { name: t.projects, href: '#proyectos' },
-        { name: t.education, href: '#educación' },
+        { name: t.education, href: '#educacion' },
     ];
 
     return (

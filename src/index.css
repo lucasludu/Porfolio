@@ -25,10 +25,6 @@
     }
 }
 
-.timeline-line {
-    @apply absolute left-4 top-0 bottom-0 w-0.5 bg-accent/20;
-}
-
 .glass-card {
     @apply bg-card/60 border border-foreground/10 backdrop-blur-md rounded-xl overflow-hidden shadow-lg transition-all duration-500 hover:border-accent/30 hover:shadow-accent/5;
 }
@@ -76,5 +72,15 @@
     }
     to {
         clip-path: inset(0 0 0 0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    ::view-transition-new(root) {
+        animation: none;
+    }
+
+    html {
+        scroll-behavior: auto;
     }
 }

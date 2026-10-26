@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Github, ChevronDown, ChevronUp, ExternalLink } from 'lucide-react';
+import { Github, ExternalLink } from 'lucide-react';
 
 const ProjectGrid = ({ t }) => {
     const getLinkIcon = (url, size = 14) => {
@@ -11,57 +11,58 @@ const ProjectGrid = ({ t }) => {
     };
 
     const [activeCategory, setActiveCategory] = useState('all');
-    const projectStaticData = [
-        {
+    // Datos no traducibles de cada proyecto, por id (ver translations.js)
+    const projectStaticData = {
+        'split-money': {
             tags: ['.NET 10', 'Blazor', 'Clean Architecture', 'SQLite', 'C#'],
             image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=800&auto=format&fit=crop',
             category: 'net'
         },
-        {
+        'trip-picture': {
             tags: ['React Native', 'Firebase', 'Maps API', 'TypeScript'],
             image: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=800&auto=format&fit=crop',
             category: 'react'
         },
-        {
+        'agente-documentador': {
             tags: ['Python', 'Docker', 'Ollama', 'Groq / Gemini'],
             image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800&auto=format&fit=crop',
             category: 'agents'
         },
-        {
+        'carpinteria-web': {
             tags: ['React', 'JavaScript', 'Tailwind', 'Frontend'],
-            image: `${import.meta.env.BASE_URL}carpentry.png`,
+            image: `${import.meta.env.BASE_URL}carpentry.webp`,
             category: 'react'
         },
-        {
+        'cocheras': {
             tags: ['.NET 9', 'Blazor 10', 'Redis', 'Docker', 'JWT', 'SOLID'],
             image: 'https://images.unsplash.com/photo-1506521781263-d8422e82f27a?q=80&w=800&auto=format&fit=crop',
             category: 'net'
         },
-        {
+        'portfolio': {
             tags: ['React', 'IA-Powered', 'Tailwind', 'Framer Motion', 'Vite'],
             image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop',
             category: 'react'
         },
-        {
+        'libreta-digital': {
             tags: ['C#', 'WPF', '.NET 10', 'SQLite'],
             image: 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=800&auto=format&fit=crop',
             category: 'net'
         },
-        {
+        'rag-advance-agents': {
             tags: ['.NET 10', 'Llama 3', 'Groq API', 'RAG'],
             image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=800&auto=format&fit=crop',
             category: 'agents'
         },
-        {
+        'task-driven-agents': {
             tags: ['.NET 10', 'LLMs', 'Prompt Engineering', 'Mermaid'],
             image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800&auto=format&fit=crop',
             category: 'agents'
         }
-    ];
+    };
 
-    const projects = t.items.map((item, index) => ({
+    const projects = t.items.map((item) => ({
         ...item,
-        ...projectStaticData[index]
+        ...projectStaticData[item.id]
     }));
 
     const visibleProjects = activeCategory === 'all' 
@@ -100,9 +101,9 @@ const ProjectGrid = ({ t }) => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <AnimatePresence>
-                    {visibleProjects.map((project, index) => (
+                    {visibleProjects.map((project) => (
                         <motion.div
-                            key={project.title || index}
+                            key={project.id}
                             layout
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
@@ -115,33 +116,22 @@ const ProjectGrid = ({ t }) => {
                                 <img
                                     src={project.image}
                                     alt={project.title}
+                                    loading="lazy"
                                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                                 />
                                 <div className="absolute inset-0 bg-accent/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 gap-4">
-                                    {project.links ? (
-                                        project.links.map((link, i) => (
-                                            <a
-                                                key={i}
-                                                href={link.url}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="flex flex-col items-center gap-1 p-3 bg-card text-accent rounded-xl hover:scale-110 transition-transform shadow-md font-semibold text-xs min-w-[75px]"
-                                            >
-                                                {getLinkIcon(link.url, 20)}
-                                                <span>{link.label}</span>
-                                            </a>
-                                        ))
-                                    ) : (
+                                    {project.links.map((link, i) => (
                                         <a
-                                            href={project.href || "https://github.com/lucasludu"}
+                                            key={i}
+                                            href={link.url}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="flex flex-col items-center gap-1 p-3 bg-card text-accent rounded-xl hover:scale-110 transition-transform shadow-md font-semibold text-xs min-w-[75px]"
                                         >
-                                            {getLinkIcon(project.href || "https://github.com/lucasludu", 20)}
-                                            <span>{t.code || "Code"}</span>
+                                            {getLinkIcon(link.url, 20)}
+                                            <span>{link.label}</span>
                                         </a>
-                                    )}
+                                    ))}
                                 </div>
                             </div>
 
@@ -158,23 +148,17 @@ const ProjectGrid = ({ t }) => {
                                 </div>
 
                                 <div className="flex flex-wrap gap-4 pt-4 border-t border-foreground/10 text-xs text-muted">
-                                    {project.links ? (
-                                        project.links.map((link, i) => (
-                                            <a
-                                                key={i}
-                                                href={link.url}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="flex items-center gap-1 hover:text-accent transition-colors"
-                                            >
-                                                {getLinkIcon(link.url, 14)} {link.label}
-                                            </a>
-                                        ))
-                                    ) : (
-                                        <a href={project.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-accent transition-colors">
-                                            {getLinkIcon(project.href || "https://github.com/lucasludu", 14)} {t.code}
+                                    {project.links.map((link, i) => (
+                                        <a
+                                            key={i}
+                                            href={link.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="flex items-center gap-1 hover:text-accent transition-colors"
+                                        >
+                                            {getLinkIcon(link.url, 14)} {link.label}
                                         </a>
-                                    )}
+                                    ))}
                                 </div>
                             </div>
                         </motion.div>

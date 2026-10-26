@@ -1,26 +1,22 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
 const Timeline = ({ t }) => {
-    const [isExpanded, setIsExpanded] = useState(false);
     const [activeIndex, setActiveIndex] = useState(0);
 
-    const experiences = t.items.map((item, index) => {
-        const originalTags = [
-            ['.NET Core', 'Blazor', 'WebHooks', 'QuestPDF', 'Polly', 'MAUI', 'Azure DevOps'],
-            ['SQL Server', 'ASP.NET Framework', 'Agile'],
-            ['.NET Core 6', '.NET Framework', 'SQL Server', 'Informix', 'JIRA', 'Asana']
-        ];
+    // Tags de cada experiencia, por id (ver translations.js)
+    const experienceTags = {
+        ripsa: ['.NET Core', 'Blazor', 'WebHooks', 'QuestPDF', 'Polly', 'MAUI', 'Azure DevOps'],
+        edsa: ['SQL Server', 'ASP.NET Framework', 'Agile'],
+        toledo: ['.NET Core 6', '.NET Framework', 'SQL Server', 'Informix', 'JIRA', 'Asana']
+    };
 
-        return {
-            ...item,
-            tags: originalTags[index] || []
-        };
-    });
+    const experiences = t.items.map((item) => ({
+        ...item,
+        tags: experienceTags[item.id] || []
+    }));
 
-    const initialCount = 3; // Mostrar todos por defecto ahora que ocupan menos espacio
-    const visibleExperiences = isExpanded ? experiences : experiences.slice(0, initialCount);
 
     const toggleExperience = (index) => {
         setActiveIndex(activeIndex === index ? null : index);
@@ -39,12 +35,12 @@ const Timeline = ({ t }) => {
 
                 <div className="space-y-8">
                     <AnimatePresence mode="popLayout">
-                        {visibleExperiences.map((exp, index) => {
+                        {experiences.map((exp, index) => {
                             const isOpen = activeIndex === index;
                             return (
                                 <motion.div
                                     layout
-                                    key={exp.company || index}
+                                    key={exp.id}
                                     initial={{ opacity: 0, y: 20 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     exit={{ opacity: 0, scale: 0.95 }}

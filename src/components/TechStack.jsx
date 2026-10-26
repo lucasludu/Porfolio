@@ -4,10 +4,7 @@ import {
     Database,
     Layout,
     Server,
-    Terminal,
     Cpu,
-    Cloud,
-    Code2,
     Layers,
     ShieldCheck,
     FlaskConical,
@@ -197,7 +194,7 @@ const TechStack = ({ t }) => {
                 {/* Left Navigation Button */}
                 <button
                     onClick={() => scroll('left')}
-                    className={`absolute left-2 md:left-6 top-1/2 -translate-y-1/2 z-20 hidden md:flex items-center justify-center p-3 rounded-full bg-black/60 border border-white/10 text-white backdrop-blur-md hover:bg-accent hover:text-black hover:border-accent hover:scale-110 transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.5)] ${canScrollLeft ? 'opacity-0 md:group-hover/carousel:opacity-100 translate-x-4 md:group-hover/carousel:translate-x-0' : 'opacity-0 pointer-events-none'}`}
+                    className={`absolute left-2 md:left-6 top-1/2 -translate-y-1/2 z-20 hidden md:flex items-center justify-center p-3 rounded-full bg-card/80 border border-foreground/10 text-foreground backdrop-blur-md hover:bg-accent hover:text-accent-foreground hover:border-accent hover:scale-110 transition-all duration-300 shadow-lg ${canScrollLeft ? 'opacity-0 md:group-hover/carousel:opacity-100 translate-x-4 md:group-hover/carousel:translate-x-0' : 'opacity-0 pointer-events-none'}`}
                     aria-label="Scroll Left"
                 >
                     <ChevronLeft size={24} />
@@ -206,7 +203,7 @@ const TechStack = ({ t }) => {
                 {/* Right Navigation Button */}
                 <button
                     onClick={() => scroll('right')}
-                    className={`absolute right-2 md:right-6 top-1/2 -translate-y-1/2 z-20 hidden md:flex items-center justify-center p-3 rounded-full bg-black/60 border border-white/10 text-white backdrop-blur-md hover:bg-accent hover:text-black hover:border-accent hover:scale-110 transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.5)] ${canScrollRight ? 'opacity-0 md:group-hover/carousel:opacity-100 -translate-x-4 md:group-hover/carousel:translate-x-0' : 'opacity-0 pointer-events-none'}`}
+                    className={`absolute right-2 md:right-6 top-1/2 -translate-y-1/2 z-20 hidden md:flex items-center justify-center p-3 rounded-full bg-card/80 border border-foreground/10 text-foreground backdrop-blur-md hover:bg-accent hover:text-accent-foreground hover:border-accent hover:scale-110 transition-all duration-300 shadow-lg ${canScrollRight ? 'opacity-0 md:group-hover/carousel:opacity-100 -translate-x-4 md:group-hover/carousel:translate-x-0' : 'opacity-0 pointer-events-none'}`}
                     aria-label="Scroll Right"
                 >
                     <ChevronRight size={24} />
@@ -226,7 +223,7 @@ const TechStack = ({ t }) => {
                             whileHover={{ y: -5 }}
                             transition={{ duration: 0.4 }}
                             viewport={{ once: true }}
-                            className="glass-card relative group p-6 min-w-[280px] md:min-w-[320px] flex-shrink-0 snap-center border border-white/5 bg-[#0a0a0a]/50 hover:bg-[#0a0a0a]/80 transition-all rounded-2xl"
+                            className="glass-card relative group p-6 min-w-[280px] md:min-w-[320px] flex-shrink-0 snap-center rounded-2xl"
                         >
                             {/* Subtle glow effect on hover */}
                             <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl pointer-events-none" />
@@ -237,7 +234,7 @@ const TechStack = ({ t }) => {
                                 </div>
                                 <h3 className="font-bold text-lg text-foreground/90">{category.title}</h3>
                             </div>
-                            <motion.div
+                            <motion.ul
                                 variants={containerVariants}
                                 initial="hidden"
                                 whileInView="visible"
@@ -245,21 +242,20 @@ const TechStack = ({ t }) => {
                                 className="relative z-10 flex flex-col gap-3"
                             >
                                 {category.skills.map((skill) => (
-                                    <motion.button
+                                    <motion.li
                                         key={skill.name}
                                         variants={itemVariants}
                                         whileHover={{ y: -2, scale: 1.02 }}
-                                        whileTap={{ y: -2, scale: 1.02 }}
                                         className={`w-full px-4 py-2 text-sm rounded-xl border transition-all duration-300 flex items-center justify-center ${
                                             skill.featured
-                                                ? 'bg-accent/10 border-accent/30 text-accent font-semibold shadow-sm hover:shadow-md hover:shadow-accent/40 hover:bg-accent/20 hover:border-accent/50 focus:outline-none focus:ring-2 focus:ring-accent'
-                                                : 'bg-foreground/5 border-foreground/10 font-medium text-muted hover:text-accent hover:border-accent/40 hover:shadow-sm hover:shadow-accent/30 hover:bg-accent/10 focus:outline-none focus:ring-2 focus:ring-accent'
+                                                ? 'bg-accent/10 border-accent/30 text-accent font-semibold shadow-sm hover:shadow-md hover:shadow-accent/40 hover:bg-accent/20 hover:border-accent/50'
+                                                : 'bg-foreground/5 border-foreground/10 font-medium text-muted hover:text-accent hover:border-accent/40 hover:shadow-sm hover:shadow-accent/30 hover:bg-accent/10'
                                         }`}
                                     >
                                         {skill.name}
-                                    </motion.button>
+                                    </motion.li>
                                 ))}
-                            </motion.div>
+                            </motion.ul>
                         </motion.div>
                     ))}
                 </div>
