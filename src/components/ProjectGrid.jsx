@@ -29,7 +29,7 @@ const ProjectGrid = ({ t }) => {
         },
         {
             tags: ['React', 'JavaScript', 'Tailwind', 'Frontend'],
-            image: `${import.meta.env.BASE_URL}carpentry.png`,
+            image: `${import.meta.env.BASE_URL}carpentry.webp`,
             category: 'react'
         },
         {
@@ -115,6 +115,7 @@ const ProjectGrid = ({ t }) => {
                                 <img
                                     src={project.image}
                                     alt={project.title}
+                                    loading="lazy"
                                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                                 />
                                 <div className="absolute inset-0 bg-accent/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 gap-4">
