@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useLayoutEffect } from 'react';
 import { flushSync } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Github, Linkedin, Mail } from 'lucide-react';
@@ -35,6 +35,11 @@ function App() {
         };
     }, []);
 
+    // useLayoutEffect para que la clase cambie dentro del flushSync de la view transition
+    useLayoutEffect(() => {
+        document.documentElement.classList.toggle('dark', isDark);
+    }, [isDark]);
+
     const toggleTheme = () => {
         const newTheme = !isDark;
         
@@ -61,7 +66,7 @@ function App() {
     const t = translations[lang];
 
     return (
-        <div className={`min-h-screen overflow-x-hidden transition-colors duration-300 bg-background text-foreground selection:bg-accent/30 relative ${isDark ? 'dark' : ''}`}>
+        <div className={`min-h-screen overflow-x-hidden transition-colors duration-300 bg-background text-foreground selection:bg-accent/30 relative`}>
             {/* Initial Loader */}
             <AnimatePresence>
                 {isLoading && (
