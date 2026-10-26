@@ -74,3 +74,13 @@
         clip-path: inset(0 0 0 0);
     }
 }
+
+@media (prefers-reduced-motion: reduce) {
+    ::view-transition-new(root) {
+        animation: none;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+}
