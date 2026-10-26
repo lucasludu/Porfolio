@@ -5,7 +5,7 @@ Flujo de trabajo: por cada tarea se crea una rama desde `develop`, se arregla, s
 ## 🐛 Bugs
 
 - [x] **1. `fix/hero-translations`**: el Hero ignora `t.description` y tiene el texto hardcodeado (con un `split('specialized in')` para detectar idioma). Usar la traducción y resaltar palabras clave desde `translations.js`.
-- [ ] **2. `fix/techstack-light-mode`**: las tarjetas (`bg-[#0a0a0a]/50`) y los botones del carrusel (`bg-black/60`) quedan negros en modo claro. Usar los tokens del tema.
+- [x] **2. `fix/techstack-light-mode`**: las tarjetas (`bg-[#0a0a0a]/50`) y los botones del carrusel (`bg-black/60`) quedan negros en modo claro. Usar los tokens del tema.
 - [ ] **3. `fix/dark-class-on-html`**: la clase `dark` se aplica a un `<div>` y no a `<html>`, así que `body` y la scrollbar no cambian de tema.
 - [ ] **4. `fix/portfolio-project-link`**: el proyecto "Portfolio" apunta a `github.com/lucasludu/Portfolio` (no existe). El repo real es `Porfolio`.
 
