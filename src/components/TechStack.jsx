@@ -234,7 +234,7 @@ const TechStack = ({ t }) => {
                                 </div>
                                 <h3 className="font-bold text-lg text-foreground/90">{category.title}</h3>
                             </div>
-                            <motion.div
+                            <motion.ul
                                 variants={containerVariants}
                                 initial="hidden"
                                 whileInView="visible"
@@ -242,21 +242,20 @@ const TechStack = ({ t }) => {
                                 className="relative z-10 flex flex-col gap-3"
                             >
                                 {category.skills.map((skill) => (
-                                    <motion.button
+                                    <motion.li
                                         key={skill.name}
                                         variants={itemVariants}
                                         whileHover={{ y: -2, scale: 1.02 }}
-                                        whileTap={{ y: -2, scale: 1.02 }}
                                         className={`w-full px-4 py-2 text-sm rounded-xl border transition-all duration-300 flex items-center justify-center ${
                                             skill.featured
-                                                ? 'bg-accent/10 border-accent/30 text-accent font-semibold shadow-sm hover:shadow-md hover:shadow-accent/40 hover:bg-accent/20 hover:border-accent/50 focus:outline-none focus:ring-2 focus:ring-accent'
-                                                : 'bg-foreground/5 border-foreground/10 font-medium text-muted hover:text-accent hover:border-accent/40 hover:shadow-sm hover:shadow-accent/30 hover:bg-accent/10 focus:outline-none focus:ring-2 focus:ring-accent'
+                                                ? 'bg-accent/10 border-accent/30 text-accent font-semibold shadow-sm hover:shadow-md hover:shadow-accent/40 hover:bg-accent/20 hover:border-accent/50'
+                                                : 'bg-foreground/5 border-foreground/10 font-medium text-muted hover:text-accent hover:border-accent/40 hover:shadow-sm hover:shadow-accent/30 hover:bg-accent/10'
                                         }`}
                                     >
                                         {skill.name}
-                                    </motion.button>
+                                    </motion.li>
                                 ))}
-                            </motion.div>
+                            </motion.ul>
                         </motion.div>
                     ))}
                 </div>
