@@ -28,6 +28,10 @@ function App() {
         document.documentElement.classList.toggle('dark', isDark);
     }, [isDark]);
 
+    useEffect(() => {
+        document.documentElement.lang = lang;
+    }, [lang]);
+
     const toggleTheme = () => {
         const newTheme = !isDark;
         
