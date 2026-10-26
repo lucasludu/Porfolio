@@ -14,15 +14,17 @@ const Hero = ({ t }) => {
                     <span className="text-accent">{t.title}</span>
                 </h1>
                 <p className="text-lg md:text-xl text-muted max-w-3xl mb-10 leading-relaxed text-left">
-                    {t.description.split('specialized in').length > 1 ? (
-                        <>
-                            University Technician in Programming (UTN MDP) specialized in <span className="dark:text-white text-slate-900 font-semibold">.NET Core</span>.<br /> I design scalable and robust solutions under patterns of <span className="dark:text-white text-slate-900 font-semibold">Onion Architecture</span>, optimizing workflows using <span className="dark:text-white text-slate-900 font-semibold">Docker, SQL Server</span> and advanced <span className="dark:text-white text-slate-900 font-semibold">AI</span> tools.
-                        </>
-                    ) : (
-                        <>
-                            Técnico Universitario en Programación (UTN MDP) especializado en <span className="dark:text-white text-slate-900 font-semibold">.NET Core</span>.<br />Diseño soluciones escalables y robustas bajo patrones de <span className="dark:text-white text-slate-900 font-semibold">Onion Architecture</span>, optimizando flujos de trabajo mediante <span className="dark:text-white text-slate-900 font-semibold">Docker, SQL Server</span> y herramientas avanzadas de <span className="dark:text-white text-slate-900 font-semibold">IA</span>.
-                        </>
-                    )}
+                    {/* "\n" = salto de línea, **texto** = resaltado */}
+                    {t.description.split('\n').map((line, i) => (
+                        <span key={i}>
+                            {i > 0 && <br />}
+                            {line.split('**').map((part, j) =>
+                                j % 2 === 1
+                                    ? <span key={j} className="dark:text-white text-slate-900 font-semibold">{part}</span>
+                                    : part
+                            )}
+                        </span>
+                    ))}
                 </p>
 
                 <div className="flex flex-wrap justify-center gap-6 mb-12">

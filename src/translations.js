@@ -9,7 +9,7 @@ export const translations = {
         },
         hero: {
             title: 'Desarrollador .NET',
-            description: 'Técnico Universitario en Programación (UTN) especializado en el desarrollo backend con .NET Core. Diseño soluciones web de alto rendimiento bajo arquitecturas modernas (Onion/Clean Architecture) y bases de datos relacionales, optimizando la confiabilidad de sistemas mediante patrones de diseño y herramientas de automatización.',
+            description: 'Técnico Universitario en Programación (UTN MDP) especializado en **.NET Core**.\nDiseño soluciones escalables y robustas bajo patrones de **Onion Architecture**, optimizando flujos de trabajo mediante **Docker, SQL Server** y herramientas avanzadas de **IA**.',
             downloadCv: 'Descargar CV',
             cvFile: 'Lucas_Luduena_CV_ESP.pdf'
         },
@@ -151,7 +151,7 @@ export const translations = {
         },
         hero: {
             title: '.NET Developer',
-            description: '.NET Developer & University Technician in Programming. I design high-performance backend solutions using modern architectures (Onion/Clean Architecture) and relational databases, focused on system reliability through robust design patterns and automation tools.',
+            description: 'University Technician in Programming (UTN MDP) specialized in **.NET Core**.\nI design scalable and robust solutions under patterns of **Onion Architecture**, optimizing workflows using **Docker, SQL Server** and advanced **AI** tools.',
             downloadCv: 'Download CV',
             cvFile: 'Lucas_Luduena_CV_ENG.pdf'
         },
