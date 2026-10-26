@@ -11,57 +11,58 @@ const ProjectGrid = ({ t }) => {
     };
 
     const [activeCategory, setActiveCategory] = useState('all');
-    const projectStaticData = [
-        {
+    // Datos no traducibles de cada proyecto, por id (ver translations.js)
+    const projectStaticData = {
+        'split-money': {
             tags: ['.NET 10', 'Blazor', 'Clean Architecture', 'SQLite', 'C#'],
             image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=800&auto=format&fit=crop',
             category: 'net'
         },
-        {
+        'trip-picture': {
             tags: ['React Native', 'Firebase', 'Maps API', 'TypeScript'],
             image: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=800&auto=format&fit=crop',
             category: 'react'
         },
-        {
+        'agente-documentador': {
             tags: ['Python', 'Docker', 'Ollama', 'Groq / Gemini'],
             image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800&auto=format&fit=crop',
             category: 'agents'
         },
-        {
+        'carpinteria-web': {
             tags: ['React', 'JavaScript', 'Tailwind', 'Frontend'],
             image: `${import.meta.env.BASE_URL}carpentry.webp`,
             category: 'react'
         },
-        {
+        'cocheras': {
             tags: ['.NET 9', 'Blazor 10', 'Redis', 'Docker', 'JWT', 'SOLID'],
             image: 'https://images.unsplash.com/photo-1506521781263-d8422e82f27a?q=80&w=800&auto=format&fit=crop',
             category: 'net'
         },
-        {
+        'portfolio': {
             tags: ['React', 'IA-Powered', 'Tailwind', 'Framer Motion', 'Vite'],
             image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop',
             category: 'react'
         },
-        {
+        'libreta-digital': {
             tags: ['C#', 'WPF', '.NET 10', 'SQLite'],
             image: 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=800&auto=format&fit=crop',
             category: 'net'
         },
-        {
+        'rag-advance-agents': {
             tags: ['.NET 10', 'Llama 3', 'Groq API', 'RAG'],
             image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=800&auto=format&fit=crop',
             category: 'agents'
         },
-        {
+        'task-driven-agents': {
             tags: ['.NET 10', 'LLMs', 'Prompt Engineering', 'Mermaid'],
             image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800&auto=format&fit=crop',
             category: 'agents'
         }
-    ];
+    };
 
-    const projects = t.items.map((item, index) => ({
+    const projects = t.items.map((item) => ({
         ...item,
-        ...projectStaticData[index]
+        ...projectStaticData[item.id]
     }));
 
     const visibleProjects = activeCategory === 'all' 
@@ -102,7 +103,7 @@ const ProjectGrid = ({ t }) => {
                 <AnimatePresence>
                     {visibleProjects.map((project, index) => (
                         <motion.div
-                            key={project.title || index}
+                            key={project.id}
                             layout
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}

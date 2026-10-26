@@ -37,18 +37,21 @@ export const translations = {
             showLess: 'Ver menos',
             items: [
                 {
+                    id: 'ripsa',
                     title: 'Desarrollador Full-Stack',
                     company: 'RIPSA',
                     period: 'nov. 2024 - actualidad',
                     description: 'Especializado en desarrollo Full-Stack con .NET Core (6, 8 y 9) y Blazor. Lideré la migración de aplicaciones legacy (VB y .NET Framework), optimicé flujos asíncronos mediante WebHooks, e integré generación dinámica de PDFs con QuestPDF y lógica de resiliencia para pasarelas de pago usando Polly.'
                 },
                 {
+                    id: 'edsa',
                     title: 'Desarrollador de .NET',
                     company: 'EDSA',
                     period: 'nov. 2023 - sept. 2024',
                     description: 'Mantenimiento y gestión avanzada de bases de datos SQL Server mediante Stored Procedures, Triggers e Índices optimizados. Desarrollé aplicaciones web en ASP.NET Framework enfocadas en brindar una experiencia de usuario fluida y de alta escalabilidad.'
                 },
                 {
+                    id: 'toledo',
                     title: 'Desarrollador de .NET',
                     company: 'Supermercados Toledo',
                     period: 'oct. 2022 - nov. 2023',
@@ -67,6 +70,7 @@ export const translations = {
             },
             items: [
                 {
+                    id: 'split-money',
                     title: 'Split Money',
                     description: 'Plataforma para gestión de gastos. Backend desarrollado con .NET Core 10 bajo Clean Architecture y base de datos SQLite, conectado a un frontend interactivo en Blazor.',
                     links: [
@@ -75,16 +79,19 @@ export const translations = {
                     ]
                 },
                 {
+                    id: 'trip-picture',
                     title: 'TripPicture',
                     description: 'Aplicación móvil en React Native y Firebase. Permite documentar viajes, almacenar fotos (ibbimage) y visualizar en un mapa interactivo las ciudades, países y kilómetros recorridos.',
                     links: [{ label: 'GitHub', url: 'https://github.com/lucasludu/TripPicture' }]
                 },
                 {
+                    id: 'agente-documentador',
                     title: 'AgenteDocumentador',
                     description: 'Orquestador IA en Python. Utiliza Ollama (Docker), Groq y Gemini para analizar proyectos, generar documentación, diagramas UML y mejoras, con visor de logs paso a paso en terminal.',
                     links: [{ label: 'GitHub', url: 'https://github.com/lucasludu/AgenteDocumentador' }]
                 },
                 {
+                    id: 'carpinteria-web',
                     title: 'Carpintería Web',
                     description: 'Portfolio interactivo puro frontend construido con React. Muestra de forma elegante los trabajos realizados, descripción de servicios y vías de contacto para un negocio de carpintería.',
                     links: [
@@ -93,6 +100,7 @@ export const translations = {
                     ]
                 },
                 {
+                    id: 'cocheras',
                     title: 'Sistema de Gestión de Cocheras',
                     description: 'Arquitectura escalable para la gestión de estacionamientos en tiempo real. Implementa WebAPI con .NET Core 9, Frontend en Blazor .NET 10 y sistemas de caché distribuida.',
                     links: [
@@ -101,21 +109,25 @@ export const translations = {
                     ]
                 },
                 {
+                    id: 'portfolio',
                     title: 'Portfolio Pro & Áspero',
                     description: 'Landing page de alto impacto diseñada con un enfoque moderno. Desarrollada mediante flujos de trabajo avanzados de IA para maximizar la eficiencia, performance y estética.',
                     links: [{ label: 'Front', url: 'https://github.com/lucasludu/Porfolio' }]
                 },
                 {
+                    id: 'libreta-digital',
                     title: 'Libreta Digital',
                     description: 'Aplicación de escritorio en C# con WPF y .NET 10 para la gestión académica, utilizando SQLite. Permite administrar alumnos, cursos, materias y calificaciones de manera eficiente.',
                     links: [{ label: 'WPF', url: 'https://github.com/lucasludu/EscuelaGestion' }]
                 },
                 {
+                    id: 'rag-advance-agents',
                     title: 'RAG Advance Agents',
                     description: 'Agente RAG avanzado en .NET 10. Implementa recuperación aumentada de generación utilizando embeddings locales y modelos de Groq, con interfaz web que renderiza diagramas Mermaid dinámicamente.',
                     links: [{ label: 'GitHub', url: 'https://github.com/lucasludu/RAGAdvanceAgents' }]
                 },
                 {
+                    id: 'task-driven-agents',
                     title: 'Task Driven Agents',
                     description: 'Arquitectura de agentes orientados a tareas. Sistema modular en .NET con configuración segura de credenciales, inyección de variables de entorno e integración de diagramas arquitectónicos.',
                     links: [{ label: 'GitHub', url: 'https://github.com/lucasludu/TaskDrivenAgents' }]
@@ -179,18 +191,21 @@ export const translations = {
             showLess: 'Show less',
             items: [
                 {
+                    id: 'ripsa',
                     title: 'Full-Stack Developer',
                     company: 'RIPSA',
                     period: 'Nov. 2024 - Present',
                     description: 'Specialized in Full-Stack development with .NET Core (6, 8, and 9) and Blazor. Successfully led the migration of legacy applications (VB and .NET Framework), optimized asynchronous workflows via WebHooks, and implemented dynamic PDF generation with QuestPDF and payment system resilience using Polly.'
                 },
                 {
+                    id: 'edsa',
                     title: '.NET Developer',
                     company: 'EDSA',
                     period: 'Nov. 2023 - Sep. 2024',
                     description: 'Advanced maintenance and management of SQL Server databases using optimized Stored Procedures, Triggers, and Indexes. Developed web applications in ASP.NET Framework with a strong focus on user experience and scalability.'
                 },
                 {
+                    id: 'toledo',
                     title: '.NET Developer',
                     company: 'Toledo Supermarkets',
                     period: 'Oct. 2022 - Nov. 2023',
@@ -209,6 +224,7 @@ export const translations = {
             },
             items: [
                 {
+                    id: 'split-money',
                     title: 'Split Money',
                     description: 'Expense management platform. Backend built with .NET Core 10 following Clean Architecture and SQLite database, connected to an interactive frontend developed in Blazor.',
                     links: [
@@ -217,16 +233,19 @@ export const translations = {
                     ]
                 },
                 {
+                    id: 'trip-picture',
                     title: 'TripPicture',
                     description: 'Mobile application in React Native and Firebase. Allows tracking travel history, storing photos (ibbimage), and visualizing visited cities, countries, and traveled kilometers on an interactive map.',
                     links: [{ label: 'GitHub', url: 'https://github.com/lucasludu/TripPicture' }]
                 },
                 {
+                    id: 'agente-documentador',
                     title: 'AgenteDocumentador',
                     description: 'AI Orchestrator in Python. Leverages Ollama (Docker), Groq, and Gemini to analyze and generate project documentation, UML diagrams, featuring a terminal log viewer.',
                     links: [{ label: 'GitHub', url: 'https://github.com/lucasludu/AgenteDocumentador' }]
                 },
                 {
+                    id: 'carpinteria-web',
                     title: 'Carpintería Web',
                     description: 'Interactive pure frontend portfolio built with React. Elegantly showcases projects, service descriptions, and contact methods for a carpentry business.',
                     links: [
@@ -235,6 +254,7 @@ export const translations = {
                     ]
                 },
                 {
+                    id: 'cocheras',
                     title: 'Garage Management System',
                     description: 'Scalable architecture for real-time parking management. Implements WebAPI with .NET Core 9, Frontend in Blazor .NET 10, and distributed caching systems.',
                     links: [
@@ -243,21 +263,25 @@ export const translations = {
                     ]
                 },
                 {
+                    id: 'portfolio',
                     title: 'Pro & Edgy Portfolio',
                     description: 'High-impact landing page designed with a modern approach. Developed using advanced AI workflows to maximize efficiency, performance, and aesthetics.',
                     links: [{ label: 'GitHub', url: 'https://github.com/lucasludu/Porfolio' }]
                 },
                 {
+                    id: 'libreta-digital',
                     title: 'Digital Gradebook',
                     description: 'Desktop application in C# with WPF and .NET 10 for academic management, using SQLite. Enables efficient administration of students, courses, subjects, and grades.',
                     links: [{ label: 'GitHub', url: 'https://github.com/lucasludu/EscuelaGestion' }]
                 },
                 {
+                    id: 'rag-advance-agents',
                     title: 'RAG Advance Agents',
                     description: 'Advanced RAG agent in .NET 10. Implements retrieval-augmented generation using local embeddings and Groq models, featuring a web interface that dynamically renders Mermaid diagrams.',
                     links: [{ label: 'GitHub', url: 'https://github.com/lucasludu/RAGAdvanceAgents' }]
                 },
                 {
+                    id: 'task-driven-agents',
                     title: 'Task Driven Agents',
                     description: 'Task-oriented agent architecture. Modular .NET system with secure credential configuration, environment variable injection, and integration of architectural diagrams.',
                     links: [{ label: 'GitHub', url: 'https://github.com/lucasludu/TaskDrivenAgents' }]
