@@ -1,6 +1,5 @@
 import { useState, useEffect, useLayoutEffect } from 'react';
 import { flushSync } from 'react-dom';
-import { motion, AnimatePresence } from 'framer-motion';
 import { Github, Linkedin, Mail } from 'lucide-react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -11,28 +10,17 @@ import Education from './components/Education';
 import { translations } from './translations';
 
 function App() {
-    const [isDark, setIsDark] = useState(true);
-    const [lang, setLang] = useState('es');
-    const [isLoading, setIsLoading] = useState(true);
+    // Se leen al inicializar para evitar un parpadeo del tema/idioma por defecto
+    const [isDark, setIsDark] = useState(() => localStorage.getItem('theme') !== 'light');
+    const [lang, setLang] = useState(() => localStorage.getItem('lang') || 'es');
 
     useEffect(() => {
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'light') setIsDark(false);
-        const savedLang = localStorage.getItem('lang');
-        if (savedLang) setLang(savedLang);
-
         const handleMouseMove = (e) => {
             document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
             document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
         };
         window.addEventListener('mousemove', handleMouseMove);
-        
-        const loaderTimer = setTimeout(() => setIsLoading(false), 1200);
-
-        return () => {
-            window.removeEventListener('mousemove', handleMouseMove);
-            clearTimeout(loaderTimer);
-        };
+        return () => window.removeEventListener('mousemove', handleMouseMove);
     }, []);
 
     // useLayoutEffect para que la clase cambie dentro del flushSync de la view transition
@@ -67,24 +55,6 @@ function App() {
 
     return (
         <div className={`min-h-screen overflow-x-hidden transition-colors duration-300 bg-background text-foreground selection:bg-accent/30 relative`}>
-            {/* Initial Loader */}
-            <AnimatePresence>
-                {isLoading && (
-                    <motion.div 
-                        initial={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.5 }}
-                        className="fixed inset-0 z-[100] flex items-center justify-center bg-background"
-                    >
-                        <motion.div 
-                            animate={{ scale: [1, 1.2, 1], rotate: [0, 180, 360] }}
-                            transition={{ duration: 1.5, ease: "easeInOut", repeat: Infinity }}
-                            className="w-16 h-16 border-4 border-accent/20 border-t-accent rounded-full"
-                        />
-                    </motion.div>
-                )}
-            </AnimatePresence>
-
             {/* Ambient Spotlight Effect */}
             <div 
                 className="pointer-events-none fixed inset-0 z-0 transition-opacity duration-300"

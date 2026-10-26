@@ -11,7 +11,7 @@ Flujo de trabajo: por cada tarea se crea una rama desde `develop`, se arregla, s
 
 ## ⚡ Performance
 
-- [ ] **5. `perf/remove-loader`**: borrar el loader artificial de 1,2 s.
+- [x] **5. `perf/remove-loader`**: borrar el loader artificial de 1,2 s.
 - [ ] **6. `perf/optimize-images`**: `favicon.png` (464 KB) y `carpentry.png` (700 KB) → WebP/redimensionadas. Agregar `loading="lazy"` a las imágenes de proyectos.
 
 ## 🧹 Código
