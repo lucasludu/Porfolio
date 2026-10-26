@@ -11,7 +11,12 @@ import { translations } from './translations';
 
 function App() {
     // Se leen al inicializar para evitar un parpadeo del tema/idioma por defecto
-    const [isDark, setIsDark] = useState(() => localStorage.getItem('theme') !== 'light');
+    // Sin preferencia guardada se usa la del sistema (oscuro por defecto)
+    const [isDark, setIsDark] = useState(() => {
+        const saved = localStorage.getItem('theme');
+        if (saved) return saved === 'dark';
+        return !window.matchMedia('(prefers-color-scheme: light)').matches;
+    });
     const [lang, setLang] = useState(() => localStorage.getItem('lang') || 'es');
 
     useEffect(() => {
