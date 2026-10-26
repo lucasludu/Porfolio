@@ -103,7 +103,7 @@ export const translations = {
                 {
                     title: 'Portfolio Pro & Áspero',
                     description: 'Landing page de alto impacto diseñada con un enfoque moderno. Desarrollada mediante flujos de trabajo avanzados de IA para maximizar la eficiencia, performance y estética.',
-                    links: [{ label: 'Front', url: 'https://github.com/lucasludu/Portfolio' }]
+                    links: [{ label: 'Front', url: 'https://github.com/lucasludu/Porfolio' }]
                 },
                 {
                     title: 'Libreta Digital',
@@ -245,7 +245,7 @@ export const translations = {
                 {
                     title: 'Pro & Edgy Portfolio',
                     description: 'High-impact landing page designed with a modern approach. Developed using advanced AI workflows to maximize efficiency, performance, and aesthetics.',
-                    links: [{ label: 'GitHub', url: 'https://github.com/lucasludu/Portfolio' }]
+                    links: [{ label: 'GitHub', url: 'https://github.com/lucasludu/Porfolio' }]
                 },
                 {
                     title: 'Digital Gradebook',
