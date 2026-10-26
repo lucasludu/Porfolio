@@ -19,7 +19,7 @@ Flujo de trabajo: por cada tarea se crea una rama desde `develop`, se arregla, s
 - [x] **7. `refactor/project-data`**: los datos de proyectos y experiencia se unen por índice entre el componente y `translations.js`. Unificar en un solo archivo de datos con `id`.
 - [x] **8. `chore/remove-dead-code`**: borrar `isExpanded`/`initialCount`/`ChevronUp` en Timeline, `ChevronDown`/`ChevronUp` en ProjectGrid, iconos sin usar en TechStack, `.timeline-line` en CSS y las dependencias `clsx` y `tailwind-merge`.
 - [x] **9. `a11y/skill-tags`**: los skills son `motion.button` sin acción. Cambiar por elementos no interactivos.
-- [ ] **10. `chore/deploy-setup`**: sacar `dist/` del repo, agregarlo a `.gitignore` y sumar `gh-pages` + script `deploy`.
+- [x] **10. `chore/deploy-setup`**: sacar `dist/` del repo, agregarlo a `.gitignore` y sumar `gh-pages` + script `deploy`.
 
 ## 🌐 SEO y accesibilidad
 
